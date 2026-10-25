@@ -201,7 +201,8 @@ nav.main .btn { padding: 10px 16px; color: var(--accent-ink); gap: 0; }
 }
 
 /* O mne */
-.about { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 24px; align-items: stretch; }
+.about-text { grid-column: 1 / -1; }
 .about-text { display: grid; gap: 18px; max-width: 38em; min-width: 0; }
 .about-text p { color: var(--muted); }
 .about-text p strong { color: var(--ink); font-weight: 600; }
@@ -213,6 +214,7 @@ nav.main .btn { padding: 10px 16px; color: var(--accent-ink); gap: 0; }
 .stat b { font-family: var(--font-display); font-stretch: 112%; font-size: 2.1rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
 .stat span { color: var(--muted); font-size: 0.95rem; }
 .trailcard p { font-size: 0.95rem; color: var(--muted); }
+.trailcard { align-content: start; }
 @media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
 
 /* Kontakt */
@@ -438,10 +440,16 @@ section[id] { scroll-margin-top: 76px; }
       </div>
       <aside class="trailcard" aria-label="Běh">
         <img class="trailphoto" src="img/lukas-hory.jpg" alt="Lukáš Rucký na horském hřebeni" width="960" height="720" loading="lazy">
-        <header><span class="mark" aria-hidden="true"></span>Mimo práci běhám</header>
+        <header><span class="mark" aria-hidden="true"></span>Běhám</header>
         <div class="stat"><b>21,1 km</b><span>první půlmaraton</span></div>
         <div class="stat"><b>50 km</b><span>horský ultratrail</span></div>
         <p>Ultratrail i testování stojí na stejném základu: dobrá příprava, vytrvalost a kontrolní body po cestě.</p>
+      </aside>
+      <aside class="trailcard" aria-label="Cestování">
+        <img class="trailphoto" src="img/lukas-mexiko.jpg" alt="Lukáš Rucký ukazuje na sopku Popocatépetl v Mexiku" width="960" height="720" loading="lazy">
+        <header><span class="mark" aria-hidden="true"></span>Rád cestuji</header>
+        <div class="stat"><b>Popocatépetl</b><span>sopka v Mexiku, na kterou na fotce ukazuji</span></div>
+        <p>Na cestách se učím přizpůsobit, když nejde všechno podle plánu. To se hodí i při testování.</p>
       </aside>
     </div>
   </section>
