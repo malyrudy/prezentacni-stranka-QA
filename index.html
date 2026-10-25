@@ -206,6 +206,8 @@ nav.main .btn { padding: 10px 16px; color: var(--accent-ink); }
 .about-text p { color: var(--muted); }
 .about-text p strong { color: var(--ink); font-weight: 600; }
 .trailcard { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 26px; display: grid; gap: 20px; }
+.trailphoto { display: block; width: calc(100% + 52px); max-width: none; height: auto; margin: -26px -26px 0; border-radius: 8px 8px 0 0; }
+@media (max-width: 400px) { .trailphoto { width: calc(100% + 52px); } }
 .trailcard header { display: flex; align-items: center; gap: 10px; font-weight: 600; }
 .stat { display: grid; gap: 2px; padding-top: 16px; border-top: 1px solid var(--line); }
 .stat b { font-family: var(--font-display); font-stretch: 112%; font-size: 2.1rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
@@ -400,6 +402,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <p><strong>Dřív jsem tvořil webové stránky,</strong> takže rozumím i pohledu vývojáře. Testy nastavuji tak, aby týmu pomáhaly, a ne ho brzdily.</p>
       </div>
       <aside class="trailcard" aria-label="Běh">
+        <img class="trailphoto" src="img/lukas-hory.jpg" alt="Lukáš Rucký na horském hřebeni" width="960" height="720" loading="lazy">
         <header><span class="mark" aria-hidden="true"></span>Mimo práci běhám</header>
         <div class="stat"><b>21,1 km</b><span>první půlmaraton</span></div>
         <div class="stat"><b>50 km</b><span>horský ultratrail</span></div>
