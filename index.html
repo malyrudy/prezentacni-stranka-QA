@@ -225,7 +225,10 @@ nav.main .btn { padding: 10px 16px; color: var(--accent-ink); }
 .contact-box { display: grid; gap: 12px; min-width: 0; }
 .mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 10px 10px 16px; }
 .mailrow code { font-family: var(--font-mono); font-size: 1rem; color: #FFFFFF; user-select: all; overflow-wrap: anywhere; }
-.copy { font: 600 0.88rem/1 var(--font-body); background: #FFFFFF; color: #0F1620; border: 0; border-radius: 5px; padding: 10px 14px; cursor: pointer; }
+.mailbtn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: 600 1.05rem/1 var(--font-body); background: #8FB3FF; color: #0F1620; text-decoration: none; border-radius: 6px; padding: 17px 24px; transition: transform .15s ease; }
+.mailbtn:hover { transform: translateY(-1px); }
+.copy { font: 600 0.88rem/1 var(--font-body); background: transparent; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.3); border-radius: 5px; padding: 9px 13px; cursor: pointer; }
+.copy:hover { border-color: rgba(255,255,255,0.6); }
 .contact-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.95rem; }
 .contact-links a { color: #8FB3FF; }
 @media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; } }
@@ -419,6 +422,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <p>Napište mi pár vět o vaší aplikaci a o tom, co vás trápí. Ozvu se do dvou pracovních dnů s návrhem termínu.</p>
       </div>
       <div class="contact-box">
+        <a class="mailbtn" href="mailto:ruckylukas@seznam.cz?subject=Konzultace%20%E2%80%93%20automatizace%20test%C5%AF&body=Dobr%C3%BD%20den%2C%0A%0Ana%C5%A1e%20aplikace%20/%20e-shop%3A%20%0Aco%20n%C3%A1s%20tr%C3%A1p%C3%AD%3A%20%0A%0AS%20pozdravem%0A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Napsat e-mail</a>
         <div class="mailrow">
           <code id="mail">ruckylukas@seznam.cz</code>
           <button class="copy" id="copy-mail" type="button">Kopírovat</button>
