@@ -114,7 +114,7 @@ nav.main a:hover { color: var(--ink); }
 .btn-primary:hover { transform: translateY(-1px); }
 .btn-ghost { color: var(--ink); border-color: var(--line); background: var(--surface); }
 .btn-ghost:hover { border-color: var(--muted); }
-nav.main .btn { padding: 10px 16px; color: var(--accent-ink); }
+nav.main .btn { padding: 10px 16px; color: var(--accent-ink); gap: 0; }
 @media (max-width: 820px) { nav.main a:not(.btn) { display: none; } }
 
 /* Hero */
@@ -235,6 +235,32 @@ nav.main .btn { padding: 10px 16px; color: var(--accent-ink); }
 
 footer.foot { background: var(--term-bg); color: #7F8B9C; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); }
 footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 22px; }
+
+/* Responzivni doladeni */
+section[id] { scroll-margin-top: 76px; }
+.nw { white-space: nowrap; }
+.run figcaption { display: block; }
+.row { grid-template-columns: 1.4em minmax(0, 1fr) auto; }
+.mailrow { justify-content: space-between; }
+@media (max-width: 860px) { .trailcard { max-width: 480px; } }
+@media (max-width: 520px) {
+  .brand small { display: none; }
+  nav.main .btn { padding: 10px 13px; font-size: 0.9rem; white-space: nowrap; }
+  .term { font-size: 0.74rem; }
+  .term-body { padding: 14px; }
+  .row { white-space: normal; }
+  .term-bar span:last-child { font-size: 0.7rem; }
+  .mailrow code { font-size: 0.92rem; }
+  .offer, .side, .pain { padding: 22px; }
+  .trailphoto { width: calc(100% + 44px); margin: -22px -22px 0; }
+  .trailcard { padding: 22px; }
+}
+@media (max-width: 360px) {
+  nav.main .btn { font-size: 0.82rem; padding: 9px 10px; }
+  .brand { font-size: 0.95rem; }
+  .hide-xs { display: none; }
+}
+.brand { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -250,7 +276,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
       <a href="#ai">AI a já</a>
       <a href="#postup">Postup</a>
       <a href="#o-mne">O mně</a>
-      <a class="btn btn-primary" href="#kontakt">Konzultace zdarma</a>
+      <a class="btn btn-primary" href="#kontakt">Konzultace<span class="hide-xs">&nbsp;zdarma</span></a>
     </nav>
   </div>
 </header>
@@ -261,7 +287,7 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
       <div class="hero-text">
         <span class="eyebrow">Automatizace testů s AI agenty</span>
         <h1>Chyby najdou testy. <span>Ne vaši zákazníci.</span></h1>
-        <p class="lead">Zavádím automatické testy do menších softwarových firem a e-shopů. Testy píše AI agent, já rozhoduji, co se testuje, a za výsledek ručím.</p>
+        <p class="lead">Zavádím automatické testy do menších softwarových firem a <span class="nw">e-shopů</span>. Testy píše AI agent, já rozhoduji, co se testuje, a za výsledek ručím.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#kontakt">Domluvit 20 minut zdarma</a>
           <a class="btn btn-ghost" href="#sluzby">Co nabízím</a>
@@ -434,7 +460,8 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
 
 <footer class="foot">
   <div class="wrap">
-    <span>© 2026 Lukáš Rucký · IČO 14299348 · Jaromíra Matušky 54/11, Ostrava</span>
+    <span>© 2026 Lukáš Rucký · IČO 14299348</span>
+    <span>Místo podnikání: <span class="nw">Jaromíra Matušky 54/11</span>, Ostrava</span>
     <span>Fyzická osoba zapsaná v živnostenském rejstříku</span>
   </div>
 </footer>
