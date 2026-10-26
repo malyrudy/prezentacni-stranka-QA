@@ -244,6 +244,9 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
 .hours strong { color: #FFFFFF; font-weight: 600; }
 .altbtn:hover { border-color: rgba(255,255,255,0.65); }
 @media (max-width: 360px) { .altrow { grid-template-columns: 1fr; } }
+.counter { display: grid; gap: 4px; padding-top: 18px; margin-top: 6px; border-top: 1px solid var(--line); }
+.counter b { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: clamp(3rem, 7vw, 4.4rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.counter > span { color: var(--muted); }
 /* Responzivni doladeni */
 section[id] { scroll-margin-top: 76px; }
 .nw { white-space: nowrap; }
@@ -434,10 +437,12 @@ section[id] { scroll-margin-top: 76px; }
       <div class="about-text">
         <span class="eyebrow">O mně</span>
         <h2 id="o-mne-h">Lukáš Rucký</h2>
-        <p><strong>QA oddělení jsem vybudoval od nuly.</strong> Ve společnosti STAPRO, která vyvíjí software pro zdravotnictví, jsem testování postavil od prvních scénářů až po fungující oddělení. Pracuji tam jako senior tester.</p>
+        <p><strong>QA oddělení jsem vybudoval od nuly.</strong> Ve společnosti STAPRO, která vyvíjí software pro zdravotnictví, jsem testování postavil od prvních scénářů až po fungující oddělení s více než 250 automatickými testy pro desktopové i webové aplikace. Pracuji tam jako senior tester.</p>
+        <p><strong>Rozhoduji, co se vyplatí automatizovat.</strong> Ne každý test má smysl automatizovat. Vybírám ty, u kterých se čas vložený do automatizace vrátí, a zbytek zůstává ruční. Automatizace tak odpovídá času a rozpočtu, které tým má.</p>
         <p><strong>Testuji software, kde má každá chyba vážné následky.</strong> Naučilo mě to testovat důkladně a myslet dopředu na to, co se může pokazit.</p>
         <p><strong>S AI agenty pracuji každý den.</strong> Píší a spouštějí automatické testy pod mým dohledem. Vím, kde šetří hodiny práce a kde je potřeba je hlídat.</p>
         <p><strong>Dřív jsem tvořil webové stránky,</strong> takže rozumím i pohledu vývojáře. Testy nastavuji tak, aby týmu pomáhaly, a ne ho brzdily.</p>
+        <div class="counter"><b><span data-count="250">250</span>+</b><span>automatických testů v QA oddělení, které jsem vybudoval</span></div>
       </div>
       <aside class="trailcard" aria-label="Běh">
         <img class="trailphoto" src="img/lukas-hory.jpg" alt="Lukáš Rucký na horském hřebeni" width="960" height="720" loading="lazy">
@@ -500,6 +505,29 @@ section[id] { scroll-margin-top: 76px; }
         navigator.clipboard.writeText(mail.textContent.trim()).then(done, function () { selectText(); });
       } catch (e) { selectText(); }
     });
+  })();
+</script>
+
+<script>
+  // Nabihaci pocitadlo: v HTML je finalni hodnota, animace bezi az pri zobrazeni sekce
+  (function () {
+    var el = document.querySelector('[data-count]');
+    if (!el || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      var start = null, dur = 1800;
+      function step(t) {
+        if (start === null) start = t;
+        var p = Math.min((t - start) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, { threshold: 0.6 });
+    io.observe(el);
   })();
 </script>
 </body>
