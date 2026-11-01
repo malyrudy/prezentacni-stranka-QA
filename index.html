@@ -244,9 +244,29 @@ footer.foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
 .hours strong { color: #FFFFFF; font-weight: 600; }
 .altbtn:hover { border-color: rgba(255,255,255,0.65); }
 @media (max-width: 360px) { .altrow { grid-template-columns: 1fr; } }
-.counter { display: grid; gap: 4px; padding-top: 18px; margin-top: 6px; border-top: 1px solid var(--line); }
-.counter b { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: clamp(3rem, 7vw, 4.4rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
-.counter > span { color: var(--muted); }
+.journey { display: grid; grid-template-columns: 1fr auto 1.25fr; gap: 20px; align-items: stretch; }
+.stage { border-radius: 8px; padding: 30px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.stage.before { background: var(--surface); border: 1px solid var(--line); }
+.stage.after { background: var(--term-bg); color: var(--term-ink); box-shadow: 0 24px 60px -32px rgba(10, 20, 40, 0.55); }
+.stage-tag { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.after .stage-tag { color: #8FB3FF; }
+.stage-num { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: clamp(3.2rem, 8vw, 5rem); line-height: 1; font-variant-numeric: tabular-nums; margin-top: 6px; }
+.before .stage-num { color: var(--muted); }
+.after .stage-num { color: #FFFFFF; }
+.stage-sub { color: var(--muted); }
+.after .stage-sub { color: #AEB8C6; }
+.stage ul { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+.stage li { display: grid; grid-template-columns: 1.3em 1fr; gap: 8px; }
+.before li { color: var(--muted); }
+.before li::before { content: "✗"; color: var(--fail); }
+.after li { color: #D6DDE7; }
+.after li::before { content: "✓"; color: #4CC38A; font-weight: 600; }
+.arrow { align-self: center; justify-self: center; font-family: var(--font-mono); font-size: 2rem; color: var(--accent); }
+.takeaway { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; padding: 24px 28px; border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 8px; background: var(--accent-soft); }
+.takeaway p { flex: 1 1 320px; max-width: 46em; min-width: 0; }
+.takeaway strong { font-weight: 600; }
+@media (max-width: 860px) { .journey { grid-template-columns: 1fr; } .arrow { transform: rotate(90deg); } }
+@media (max-width: 520px) { .stage { padding: 22px; } .takeaway { padding: 20px; } }
 /* Responzivni doladeni */
 section[id] { scroll-margin-top: 76px; }
 .nw { white-space: nowrap; }
@@ -283,6 +303,7 @@ section[id] { scroll-margin-top: 76px; }
       <span>Lukáš Rucký <small>/ QA</small></span>
     </a>
     <nav class="main" aria-label="Hlavní navigace">
+      <a href="#zkusenost">Zkušenost</a>
       <a href="#sluzby">Služby</a>
       <a href="#ai">AI a já</a>
       <a href="#postup">Postup</a>
@@ -336,6 +357,45 @@ section[id] { scroll-margin-top: 76px; }
         <div class="pain"><span class="x">✗ test chybí</span><p>Vývojáři testy nepíšou a testera nemáte.</p></div>
       </div>
       <p class="pains-after">Na celý QA tým nemusíte mít rozpočet. Stačí dobře nastavený základ, který hlídá nejdůležitější cesty vašich zákazníků při každém nasazení.</p>
+    </div>
+  </section>
+
+  <section id="zkusenost" aria-labelledby="zkusenost-h">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Moje zkušenost · STAPRO</span>
+        <h2 id="zkusenost-h">QA oddělení jsem postavil od nuly</h2>
+        <p>Ve společnosti STAPRO, která vyvíjí software pro zdravotnictví, jsem začínal bez automatických testů, bez testovacího procesu a bez QA oddělení. Dnes tam QA oddělení hlídá desktopové i webové aplikace při každém nasazení.</p>
+      </div>
+      <div class="journey">
+        <div class="stage before">
+          <span class="stage-tag">Na začátku</span>
+          <div class="stage-num">0</div>
+          <p class="stage-sub">automatických testů</p>
+          <ul>
+            <li>Testovalo se ručně před každým releasem</li>
+            <li>Žádný testovací proces ani evidence testů</li>
+            <li>Žádné QA oddělení</li>
+          </ul>
+        </div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="stage after">
+          <span class="stage-tag">Dnes</span>
+          <div class="stage-num"><span data-count="250">250</span>+</div>
+          <p class="stage-sub">automatických testů</p>
+          <ul>
+            <li>Desktop i web: Robot Framework, FlaUI, Playwright</li>
+            <li>Testy běží automaticky v Azure DevOps pipeline</li>
+            <li>Automatické testy navázané na testovací případy</li>
+            <li>Přehled výsledků pro tým na retrospektivách</li>
+            <li>AI agenti pomáhají testy psát a udržovat</li>
+          </ul>
+        </div>
+      </div>
+      <div class="takeaway">
+        <p><strong>Co z toho máte vy:</strong> stejný postup přenesu do vaší firmy. Začneme tím, co se vyplatí automatizovat nejdřív, a postupně postavíme testy, které poběží při každém nasazení. Nemusíte kvůli tomu zakládat celý QA tým.</p>
+        <a class="btn btn-primary" href="#kontakt">Probrat to na 20 minut</a>
+      </div>
     </div>
   </section>
 
@@ -437,12 +497,10 @@ section[id] { scroll-margin-top: 76px; }
       <div class="about-text">
         <span class="eyebrow">O mně</span>
         <h2 id="o-mne-h">Lukáš Rucký</h2>
-        <p><strong>QA oddělení jsem vybudoval od nuly.</strong> Ve společnosti STAPRO, která vyvíjí software pro zdravotnictví, jsem testování postavil od prvních scénářů až po fungující oddělení s více než 250 automatickými testy pro desktopové i webové aplikace. Pracuji tam jako senior tester.</p>
+        <p><strong>Jsem senior tester ve STAPRO.</strong> Pracuji na softwaru pro zdravotnictví, kde má každá chyba vážné následky. Naučilo mě to testovat důkladně a myslet dopředu na to, co se může pokazit.</p>
         <p><strong>Rozhoduji, co se vyplatí automatizovat.</strong> Ne každý test má smysl automatizovat. Vybírám ty, u kterých se čas vložený do automatizace vrátí, a zbytek zůstává ruční. Automatizace tak odpovídá času a rozpočtu, které tým má.</p>
-        <p><strong>Testuji software, kde má každá chyba vážné následky.</strong> Naučilo mě to testovat důkladně a myslet dopředu na to, co se může pokazit.</p>
         <p><strong>S AI agenty pracuji každý den.</strong> Píší a spouštějí automatické testy pod mým dohledem. Vím, kde šetří hodiny práce a kde je potřeba je hlídat.</p>
         <p><strong>Dřív jsem tvořil webové stránky,</strong> takže rozumím i pohledu vývojáře. Testy nastavuji tak, aby týmu pomáhaly, a ne ho brzdily.</p>
-        <div class="counter"><b><span data-count="250">250</span>+</b><span>automatických testů v QA oddělení, které jsem vybudoval</span></div>
       </div>
       <aside class="trailcard" aria-label="Běh">
         <img class="trailphoto" src="img/lukas-hory.jpg" alt="Lukáš Rucký na horském hřebeni" width="960" height="720" loading="lazy">
